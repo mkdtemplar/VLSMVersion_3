@@ -1,0 +1,96 @@
+﻿@model VLSMVersion_3.Models.VLSM_Model
+@{
+    ViewData["Title"] = "VLSM CALCULATE";
+}
+
+<h1>VLSM CALCULATE</h1>
+<hr />
+<form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="width: 35%">
+                <label asp-for="IP_Address" class="control-label"></label>
+                <input asp-for="IP_Address" class="form-control" />
+                <span asp-validation-for="IP_Address" class="text-danger"></span>
+            </div>
+            <br/>
+        <div class="form-group">
+            <div id="inputFormRow" style="width: 35%">
+                <div class="input-group mb-3">
+                    <br/>
+                    <div class="input-group-append"></div>
+                </div>
+            </div>
+            <div id="newRow">
+                 <input type="hidden" id="totalLans" value="0" />
+            </div>
+            <button id="addRow" type="button" class="btn btn-info">Add Network</button>
+            
+        </div>
+            <span asp-validation-for="LansValues" class="text-danger"></span>
+            <br/>
+            <div class="form-group" style="width: 35%">
+                <label asp-for="cidrValue" class="control-label"></label>
+                <input asp-for="cidrValue" class="form-control" />
+                <span asp-validation-for="cidrValue" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Calculate VLSM" class="btn btn-info" id="createButton"/>
+            </div>
+        </form>
+       
+<div>
+    <a asp-action="VlsmResult">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+         $("#addRow").click(function () 
+         {
+             @{
+                 new VLSM_Model().LansValues.Add(new Lans());
+             }
+             var rowCount = parseInt($("#totalLans").val());
+             rowCount++;
+             $("#totalLans").val(rowCount);
+                var html = '';
+                html += '<div id="inputFormRow" style="width: 35%">';
+                html += '<div class="input-group mb-3">';
+                html += '<input type="number" id="[' + (rowCount - 1) + '].InitialLanValues" class="form-control m-input" placeholder="Enter number of Hosts" autocomplete="off" style="width: 30%" required>';
+                html += '<div class="input-group-append">';
+                html += '<button id="removeRow" type="button" class="btn btn-danger" style="margin-right: 5px">Remove Network</button>';
+                html += '</div>';
+                html += '</div>';
+        
+                $('#newRow').append(html);
+            });
+        
+            $(document).on('click', '#removeRow', function () 
+            {
+                var rowCount = parseInt($("#totalLans").val());
+                rowCount--;
+                $("#totalLans").val(rowCount);
+                $(this).closest('#inputFormRow').remove();
+            });
+            
+            $(document).ready(function () {  
+                    $("#createButton").click(function () 
+                    {
+                        var inputData = $(this).serializeArray();
+                        $.ajax(  
+                        {  
+                            type: "POST", //HTTP POST Method  
+                            url: "VLSM_Controller/Create", // Controller/View   
+                            data: inputData,
+                            success : function(response) {
+                              console.log(response)
+                            }
+                        });  
+              
+                    });  
+                });  
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
