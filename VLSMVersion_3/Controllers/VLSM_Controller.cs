@@ -24,16 +24,16 @@ namespace VLSMVersion_3.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*
+               
                 ViewData["IP_Address"] = model.IP_Address;
-                foreach (var value in model.LansValues)
-                {
-                    ViewBag["LanValues"] = value;
-                }
+
+                ViewData["LansValues"] = model.LansValues;
+                
                 ViewData["cidrValue"] = model.cidrValue;
                 ViewData["NetworkID"] = model.NetworkID();
                 ViewData["TotalHosts"] = model.AvailableHosts();
-                */
+                
+                
             }
 
             return View("VlsmResult");
@@ -41,6 +41,7 @@ namespace VLSMVersion_3.Controllers
 
         public ActionResult VlsmResult()
         {
+            
             return View();
         }
 

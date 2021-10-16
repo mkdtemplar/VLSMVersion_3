@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace VLSMVersion_3.Models
     { 
         public int InitialLanValues { get; set; }
     }
-    public class VLSM_Model
+    public class VLSM_Model 
     {
         [Required(ErrorMessage = "Ip address is required")]
         [Display(Name = "IP ADDRESS")]
@@ -27,8 +28,6 @@ namespace VLSMVersion_3.Models
         
         public VLSM_Model()
         {
-            FinalNumberOfHosts = new List<Lans>();
-            InitialValuesOfLan = new List<Lans>();
             LansValues = new List<Lans>();
         }
 
@@ -159,5 +158,9 @@ namespace VLSMVersion_3.Models
             }
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
