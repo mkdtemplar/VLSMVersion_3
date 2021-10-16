@@ -35,7 +35,7 @@
             </div>
             <br/>
             <div class="form-group">
-                <input type="submit" value="Calculate VLSM" class="btn btn-info" id="createButton"/>
+                <input type="submit" value="Calculate VLSM" class="btn btn-info"/>
             </div>
         </form>
        
@@ -50,7 +50,7 @@
          $("#addRow").click(function () 
          {
              @{
-                 new VLSM_Model().LansValues.Add(new Lans());
+                new VLSM_Model().LansValues.Add(new Lans());
              }
              var rowCount = parseInt($("#totalLans").val());
              rowCount++;
@@ -58,7 +58,7 @@
                 var html = '';
                 html += '<div id="inputFormRow" style="width: 35%">';
                 html += '<div class="input-group mb-3">';
-                html += '<input type="number" id="[' + (rowCount - 1) + '].InitialLanValues" class="form-control m-input" placeholder="Enter number of Hosts" autocomplete="off" style="width: 30%" required>';
+                html += '<input type="number" name="LansValues[' + (rowCount - 1) + '].InitialLanValues" class="form-control m-input" placeholder="Enter number of Hosts" autocomplete="off" style="width: 30%" required>';
                 html += '<div class="input-group-append">';
                 html += '<button id="removeRow" type="button" class="btn btn-danger" style="margin-right: 5px">Remove Network</button>';
                 html += '</div>';
@@ -75,21 +75,19 @@
                 $(this).closest('#inputFormRow').remove();
             });
             
-            $(document).ready(function () {  
-                    $("#createButton").click(function () 
-                    {
-                        var inputData = $(this).serializeArray();
-                        $.ajax(  
-                        {  
-                            type: "POST", //HTTP POST Method  
-                            url: "VLSM_Controller/Create", // Controller/View   
-                            data: inputData,
-                            success : function(response) {
-                              console.log(response)
-                            }
-                        });  
-              
-                    });  
+            $(document).ready(function ()
+            {  
+                var inputData = $('form').serializeArray();
+                $.ajax(  
+                      {  
+                          type: "POST", //HTTP POST Method  
+                          url: "VLSM_Controller/Create", // Controller/View   
+                          data: inputData,
+                          success : function(response) {
+                           console.log(response)
+                           }
+                      });  
+               
                 });  
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

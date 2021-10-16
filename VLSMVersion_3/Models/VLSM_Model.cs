@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace VLSMVersion_3.Models
 {
     public class Lans
-    {
-        public int NumberOfHosts { get; set; }
-        public int HostsPerLan { get; set; }
+    { 
         public int InitialLanValues { get; set; }
     }
     public class VLSM_Model
@@ -25,6 +23,8 @@ namespace VLSMVersion_3.Models
         public List<Lans> FinalNumberOfHosts { get; set; }
         public List<Lans> InitialValuesOfLan { get; set; }
 
+        public int NumberOfHosts { get; set; }
+        
         public VLSM_Model()
         {
             FinalNumberOfHosts = new List<Lans>();
@@ -38,7 +38,7 @@ namespace VLSMVersion_3.Models
         public int[] cidrLastOctet = { 0, 128, 192, 224, 240, 248, 252, 254, 255 };
 
         public List<Lans> LanHostList { get; set; }
-        public List<Lans> HostsPerLan { get; set; }
+        public List<int> HostsPerLan { get; set; }
         
         public IPAddress IP()
         {
@@ -153,7 +153,7 @@ namespace VLSMVersion_3.Models
                 {
                     if (LanHostList[i].InitialLanValues <= hosts[j] && LanHostList[i].InitialLanValues >= hosts[j + 1])
                     {
-                        HostsPerLan[i].NumberOfHosts = hosts[j];
+                        HostsPerLan[i] = hosts[j];
                     }
                 }
             }

@@ -24,6 +24,7 @@ namespace VLSMVersion_3.Controllers
         {
             if (ModelState.IsValid)
             {
+                /*
                 ViewData["IP_Address"] = model.IP_Address;
                 foreach (var value in model.LansValues)
                 {
@@ -32,6 +33,7 @@ namespace VLSMVersion_3.Controllers
                 ViewData["cidrValue"] = model.cidrValue;
                 ViewData["NetworkID"] = model.NetworkID();
                 ViewData["TotalHosts"] = model.AvailableHosts();
+                */
             }
 
             return View("VlsmResult");
@@ -56,13 +58,13 @@ namespace VLSMVersion_3.Controllers
                 return View("Create");
             }
         }
-
+/*
         // GET: VLSM_Controller/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
-
+*/
         // POST: VLSM_Controller/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
