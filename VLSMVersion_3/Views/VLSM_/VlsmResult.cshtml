@@ -21,13 +21,12 @@
         </dt>
         <dd class="col-sm-10">
             @{
-                foreach (var item in (ViewData["LansValues"]) as List<Lans>)
+                var i = 1;
+                foreach (var item in (List<Lans>)ViewData["LansValues"])
                 {
-                    @item.InitialLanValues
+                  <p>Lan[@(i++)]:@(" ") @item.InitialLanValues</p>
                 }
             }
-            @ViewData["LansValues"].ToString()
-
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.cidrValue)

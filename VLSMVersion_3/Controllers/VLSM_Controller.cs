@@ -24,7 +24,6 @@ namespace VLSMVersion_3.Controllers
         {
             if (ModelState.IsValid)
             {
-               
                 ViewData["IP_Address"] = model.IP_Address;
 
                 ViewData["LansValues"] = model.LansValues;

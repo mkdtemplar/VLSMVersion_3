@@ -158,9 +158,6 @@ namespace VLSMVersion_3.Models
             }
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
