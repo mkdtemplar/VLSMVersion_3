@@ -21,10 +21,8 @@ namespace VLSMVersion_3.Models
         [Required(ErrorMessage = "CIDR value is required")]
         public int cidrValue { get; set; }
         public List<Lans> LansValues { get; set; }
-        public List<Lans> FinalNumberOfHosts { get; set; }
-        public List<Lans> InitialValuesOfLan { get; set; }
-
-        public int NumberOfHosts { get; set; }
+        public List<string> FinalResult { get; set; }
+        
         
         public VLSM_Model()
         {
@@ -36,7 +34,7 @@ namespace VLSMVersion_3.Models
         public int[] submask = { 24, 25, 26, 27, 28, 29, 30, 31, 32 };
         public int[] cidrLastOctet = { 0, 128, 192, 224, 240, 248, 252, 254, 255 };
 
-        public List<Lans> LanHostList { get; set; }
+        public List<int> LanHostList { get; set; }
         public List<int> HostsPerLan { get; set; }
         
         public IPAddress IP()
@@ -132,14 +130,14 @@ namespace VLSMVersion_3.Models
 
             for (int i = 0; i < LansValues.Count; i++)
             {
-                LanHostList[i] = LansValues[i];
+                LanHostList[i] = LansValues[i].InitialLanValues;
             }
 
             for (var j = 0; j < LanHostList.Count; j++)
             {
-                if (LanHostList[j].InitialLanValues <= 8)
+                if (LanHostList[j] <= 8)
                 {
-                    LanHostList[j].InitialLanValues += 2;
+                    LanHostList[j] += 2;
                 }
             }
         }
@@ -150,7 +148,7 @@ namespace VLSMVersion_3.Models
             {
                 for (int j = 0; j < hosts.Length; j++)
                 {
-                    if (LanHostList[i].InitialLanValues <= hosts[j] && LanHostList[i].InitialLanValues >= hosts[j + 1])
+                    if (LanHostList[i] <= hosts[j] && LanHostList[i] >= hosts[j + 1])
                     {
                         HostsPerLan[i] = hosts[j];
                     }
@@ -158,6 +156,71 @@ namespace VLSMVersion_3.Models
             }
         }
 
-       
+        public List<string> getSubAndMask()
+        {
+            for (int i = 0; i < LansValues.Count; i++)
+            {
+                LanHostList[i] = LansValues[i].InitialLanValues;
+            }
+
+            for (var j = 0; j < LanHostList.Count; j++)
+            {
+                if (LanHostList[j] <= 8)
+                {
+                    LanHostList[j] += 2;
+                }
+            }
+            
+            for (int i = 0; i < LanHostList.Count; i++)
+            {
+                for (int j = 0; j < hosts.Length; j++)
+                {
+                    if (LanHostList[i] <= hosts[j] && LanHostList[i] >= hosts[j + 1])
+                    {
+                        HostsPerLan[i] = hosts[j];
+                    }
+                }
+            }
+            HostsPerLan.Sort();
+            HostsPerLan.Reverse();
+
+            var firstOctet = Octets()[0];
+            var secondOctet = Octets()[1];
+            var thirdOctet = Octets()[3];
+            var fourthOctet = NetworkID();
+
+            for (int i = 0; i < HostsPerLan.Count; i++)
+            {
+                string networkID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet;
+                FinalResult.Add(networkID);
+
+                var subnetIndex = Array.IndexOf(hosts, HostsPerLan[i]);
+                var subnetNo = subnets[subnetIndex];
+                var subMaskNo = submask[subnetIndex];
+                var subnetDecimal = cidrLastOctet[subnetIndex];
+
+                string subMask = "/" + subMaskNo;
+                FinalResult.Add(subMask);
+
+                string subMaskNumber = "255.255.255." + subnetDecimal;
+                FinalResult.Add(subMaskNumber);
+
+                string hostsPerLan = Convert.ToString(HostsPerLan[i], 10);
+                FinalResult.Add(hostsPerLan);
+                string lanNumber =  "LAN: " + (i + 1);
+                FinalResult.Add(lanNumber);
+                string subnetNumber = Convert.ToString(subnetNo, 10);
+                FinalResult.Add(subnetNumber);
+                string startIpAddress = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + 1) + 
+                     "-" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (firstOctet + HostsPerLan[i] - 2);
+                FinalResult.Add(startIpAddress);
+                
+                string broadcastID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (firstOctet + HostsPerLan[i] - 1);
+                FinalResult.Add(broadcastID);
+
+                fourthOctet += HostsPerLan[i];
+            }
+            return FinalResult;
+        }
     }
 }

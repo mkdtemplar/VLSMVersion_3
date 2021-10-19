@@ -31,8 +31,7 @@ namespace VLSMVersion_3.Controllers
                 ViewData["cidrValue"] = model.cidrValue;
                 ViewData["NetworkID"] = model.NetworkID();
                 ViewData["TotalHosts"] = model.AvailableHosts();
-                
-                
+                //ViewData["FinalResult"] = model.getSubAndMask();
             }
 
             return View("VlsmResult");

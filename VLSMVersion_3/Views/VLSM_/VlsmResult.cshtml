@@ -24,9 +24,15 @@
                 var i = 1;
                 foreach (var item in (List<Lans>)ViewData["LansValues"])
                 {
-                  <p>Lan[@(i++)]:@(" ") @item.InitialLanValues</p>
+                    <p>Lan[@(i++)]:@(" ") @item.InitialLanValues</p>
                 }
             }
+        </dd>
+        <dt class="col-sm-2">
+            Final result
+        </dt>
+        <dd class="col-sm-10">
+            function for calculsation
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.cidrValue)
