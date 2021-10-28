@@ -194,7 +194,7 @@ namespace VLSMVersion_3.Models
 
             var firstOctet = Octets()[0];
             var secondOctet = Octets()[1];
-            var thirdOctet = Octets()[3];
+            var thirdOctet = Octets()[2];
             var fourthOctet = NetworkID();
             FinalResult = new List<string>();
 
