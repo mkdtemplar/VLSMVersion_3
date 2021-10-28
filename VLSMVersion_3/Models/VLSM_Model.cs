@@ -27,6 +27,12 @@ namespace VLSMVersion_3.Models
         public VLSM_Model()
         {
             LansValues = new List<Lans>();
+            
+        }
+
+        public VLSM_Model(List<Lans> lansValues)
+        {
+            LansValues = lansValues;
         }
 
         public int[] subnets = { 1, 2, 4, 8, 16, 32, 64, 128, 256 };
@@ -127,7 +133,7 @@ namespace VLSMVersion_3.Models
         public void NumLans()
         {
 
-
+            LanHostList = new List<int>();
             for (int i = 0; i < LansValues.Count; i++)
             {
                 LanHostList[i] = LansValues[i].InitialLanValues;
@@ -150,7 +156,7 @@ namespace VLSMVersion_3.Models
                 {
                     if (LanHostList[i] <= hosts[j] && LanHostList[i] >= hosts[j + 1])
                     {
-                        HostsPerLan[i] = hosts[j];
+                        HostsPerLan.Add(hosts[j]);
                     }
                 }
             }
@@ -158,9 +164,10 @@ namespace VLSMVersion_3.Models
 
         public List<string> getSubAndMask()
         {
+            LanHostList = new List<int>();
             for (int i = 0; i < LansValues.Count; i++)
             {
-                LanHostList[i] = LansValues[i].InitialLanValues;
+                LanHostList.Add(LansValues[i].InitialLanValues);
             }
 
             for (var j = 0; j < LanHostList.Count; j++)
@@ -170,14 +177,15 @@ namespace VLSMVersion_3.Models
                     LanHostList[j] += 2;
                 }
             }
-            
+
+            HostsPerLan = new List<int>();
             for (int i = 0; i < LanHostList.Count; i++)
             {
                 for (int j = 0; j < hosts.Length; j++)
                 {
                     if (LanHostList[i] <= hosts[j] && LanHostList[i] >= hosts[j + 1])
                     {
-                        HostsPerLan[i] = hosts[j];
+                        HostsPerLan.Add(hosts[j]);
                     }
                 }
             }
@@ -188,6 +196,7 @@ namespace VLSMVersion_3.Models
             var secondOctet = Octets()[1];
             var thirdOctet = Octets()[3];
             var fourthOctet = NetworkID();
+            FinalResult = new List<string>();
 
             for (int i = 0; i < HostsPerLan.Count; i++)
             {

@@ -10,7 +10,7 @@ namespace VLSMVersion_3.Controllers
 {
     public class VLSM_Controller : Controller
     {
-        
+        public List<Lans> _LansList { get; set; }
         // GET: VLSM_Controller/Create
         public ActionResult Create()
         {
@@ -22,16 +22,19 @@ namespace VLSMVersion_3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(VLSM_Model model)
         {
+            var model1 = new VLSM_Model(model.LansValues);
+            
             if (ModelState.IsValid)
             {
+                
                 ViewData["IP_Address"] = model.IP_Address;
 
                 ViewData["LansValues"] = model.LansValues;
-                
+                _LansList = model.LansValues;
                 ViewData["cidrValue"] = model.cidrValue;
                 ViewData["NetworkID"] = model.NetworkID();
                 ViewData["TotalHosts"] = model.AvailableHosts();
-                //ViewData["FinalResult"] = model.getSubAndMask();
+                ViewData["FinalResult"] = model.getSubAndMask();
             }
 
             return View("VlsmResult");

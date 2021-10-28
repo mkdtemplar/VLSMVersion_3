@@ -29,16 +29,22 @@
             }
         </dd>
         <dt class="col-sm-2">
-            Final result
+            @{
+                foreach (var item in (IEnumerable)ViewData["FinalResult"])
+                {
+                    @item@("--")
+                }
+            }
         </dt>
         <dd class="col-sm-10">
-            function for calculsation
+            ViewData["FinalResult"]
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.cidrValue)
         </dt>
         <dd class = "col-sm-10">
             @ViewData["cidrValue"]
+            
         </dd>
         <dt class = "col-sm-2">
             <label>Netword ID:</label>
@@ -56,5 +62,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="VlsmResult">Back to List</a>
+    <a asp-action="Create">New Calcuation</a>
 </div>
