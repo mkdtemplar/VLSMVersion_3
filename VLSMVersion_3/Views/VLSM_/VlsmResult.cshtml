@@ -3,21 +3,38 @@
 @{
     ViewData["Title"] = "VlsmResult";
 }
-
+<link rel="stylesheet" href="css/StyleTable.css"/>
 <h1>VlsmResult</h1>
 
 <div>
     <h4>VLSM_Model</h4>
     <hr />
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Network ID</th>
+            <th>CIDR</th>
+            <th>Subnet Mask</th>
+            <th>Number of Hosts per subnet</th>
+            <th>LAN</th>
+            <th>Number of subnets</th>
+            <th>Range of usable IP addresses</th>
+            <th>Broadcast ID</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IP_Address)
         </dt>
         <dd class = "col-sm-10">
-           @ViewData["IP_Address"]
+           @Html.DisplayFor(model => model)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LansValues)
+            @ViewData["IP_Address"]
         </dt>
         <dd class="col-sm-10">
             @{
@@ -35,7 +52,7 @@
             @{
                 foreach (var item in (IEnumerable)ViewData["FinalResult"])
                 {
-                    @item@("--")
+                    @item@("--") <br/>
                 }
             }
         </dd>

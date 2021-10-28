@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Html;
 
 namespace VLSMVersion_3.Models
 {
@@ -129,14 +130,14 @@ namespace VLSMVersion_3.Models
             resultBinary = int.Parse(result);
             return (Convert.ToInt32(resultBinary.ToString(), 2));
         }
-
+        /*
         public void NumLans()
         {
 
             LanHostList = new List<int>();
-            for (int i = 0; i < LansValues.Count; i++)
+            foreach (var t in LansValues)
             {
-                LanHostList[i] = LansValues[i].InitialLanValues;
+                LanHostList.Add( t.InitialLanValues);
             }
 
             for (var j = 0; j < LanHostList.Count; j++)
@@ -161,13 +162,13 @@ namespace VLSMVersion_3.Models
                 }
             }
         }
-
-        public List<string> getSubAndMask()
+        */
+        public HtmlString  GetSubAndMask()
         {
             LanHostList = new List<int>();
-            for (int i = 0; i < LansValues.Count; i++)
+            foreach (var t in LansValues)
             {
-                LanHostList.Add(LansValues[i].InitialLanValues);
+                LanHostList.Add(t.InitialLanValues);
             }
 
             for (var j = 0; j < LanHostList.Count; j++)
@@ -179,27 +180,48 @@ namespace VLSMVersion_3.Models
             }
 
             HostsPerLan = new List<int>();
-            for (int i = 0; i < LanHostList.Count; i++)
+            foreach (var t in LanHostList)
             {
                 for (int j = 0; j < hosts.Length; j++)
                 {
-                    if (LanHostList[i] <= hosts[j] && LanHostList[i] >= hosts[j + 1])
+                    if (t == hosts[j])
                     {
                         HostsPerLan.Add(hosts[j]);
                     }
+                    else
+                    {
+                        if (t < hosts[j] && t > hosts[j + 1])
+                        {
+                            HostsPerLan.Add(hosts[j]);
+                        }
+                    }
+                   
                 }
             }
+            
             HostsPerLan.Sort();
             HostsPerLan.Reverse();
-
+            
             var firstOctet = Octets()[0];
             var secondOctet = Octets()[1];
             var thirdOctet = Octets()[2];
             var fourthOctet = NetworkID();
+            var innerTable = string.Empty; 
             FinalResult = new List<string>();
+
+            innerTable += "<table class='table-primary table-striped caption-top'>";
+            innerTable += "<thead>";
+            innerTable += "<tr>";
+
+            innerTable +=
+                "<th scope='col'>Network ID</th><th scope='col'>CIDR</th><th scope='col'>Subnet Mask</th><th scope='col'>Number of Hosts per subnet</th>" +
+                "<th scope='col'>LAN</th><th scope='col'>Number of subnets</th><th scope='col'>Range of usable IP addresses</th><th scope='col'>" +
+                "Broadcast ID</th></tr></thead>" +
+                "<tbody>";
 
             for (int i = 0; i < HostsPerLan.Count; i++)
             {
+               
                 string networkID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet;
                 FinalResult.Add(networkID);
 
@@ -221,15 +243,23 @@ namespace VLSMVersion_3.Models
                 string subnetNumber = Convert.ToString(subnetNo, 10);
                 FinalResult.Add(subnetNumber);
                 string startIpAddress = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + 1) + 
-                     "-" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (firstOctet + HostsPerLan[i] - 2);
+                     "-" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 2);
                 FinalResult.Add(startIpAddress);
                 
-                string broadcastID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (firstOctet + HostsPerLan[i] - 1);
+                string broadcastID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 1);
                 FinalResult.Add(broadcastID);
 
+                innerTable += "<tr>" + "<td>" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet + "</td>" + "<td>" + "/" +
+                              subMaskNo + "</td>" + "<td>255.255.255." + subnetDecimal + "</td>" + "<td>" + HostsPerLan[i] + "</td>" + "<td>" + "LAN: " + (i + 1) + "</td>" + "<td>" + subnetNo + "</td>";
+
+                innerTable += "<td>" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + 1) + " - " + firstOctet +
+                              "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 2) + "</td>" + "<td>" + firstOctet +
+                              "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 1) + "</td>" + "</tr>";
+                
                 fourthOctet += HostsPerLan[i];
             }
-            return FinalResult;
+            innerTable += "</tbody></table>";
+            return new HtmlString(innerTable);
         }
     }
 }

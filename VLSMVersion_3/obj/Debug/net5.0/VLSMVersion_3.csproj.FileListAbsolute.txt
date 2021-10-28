@@ -136,3 +136,4 @@ D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLS
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\VlsmResult.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Home\Author.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\Index.cshtml.g.cs
+D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\VlsmResultNew.cshtml.g.cs

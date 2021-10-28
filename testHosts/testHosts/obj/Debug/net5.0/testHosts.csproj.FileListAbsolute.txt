@@ -1,0 +1,16 @@
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.exe
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.deps.json
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.runtimeconfig.json
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.runtimeconfig.dev.json
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.dll
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\ref\testHosts.dll
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\bin\Debug\net5.0\testHosts.pdb
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.csproj.AssemblyReference.cache
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.AssemblyInfoInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.AssemblyInfo.cs
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.csproj.CoreCompileInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.dll
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\ref\testHosts.dll
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.pdb
+D:\C#\PracticalApps\VLSMVersion_3\testHosts\testHosts\obj\Debug\net5.0\testHosts.genruntimeconfig.cache

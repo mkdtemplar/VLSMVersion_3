@@ -1,0 +1,27 @@
+﻿table {
+    background-color: lightblue;
+    border-collapse: collapse;
+    border: 1px solid gray;
+}
+
+th,
+td {
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+tr:nth-child(even) {
+    background-color: lightcoral;
+}
+
+tr:first-child {
+    background-color: lightgreen;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
