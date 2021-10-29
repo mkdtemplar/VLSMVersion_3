@@ -1,12 +1,49 @@
 ﻿
 @using System.Collections
+@using System.Collections.Specialized
 @model VLSMVersion_3.Models.VLSM_Model
 @{
     ViewData["Title"] = "VlsmResult";
 }
-<link rel="stylesheet" href="css/StyleTable.css" />
+<style>
+    
+    table {
+        background-color: lightblue;
+        border-collapse: collapse;
+        border: 1px solid gray;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        border: 1px solid gray;
+    }
+
+    tr:nth-child(even) {
+        background-color: lightcoral;
+    }
+
+    tr:first-child {
+        background-color: lightgreen;
+    }
+    .center {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+</style>
+
 
 <h1>VlsmResultNew</h1>
 
 <hr />
+
 @ViewData["FinalResult"]
+
