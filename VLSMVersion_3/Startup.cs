@@ -24,6 +24,7 @@ namespace VLSMVersion_3
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureSqliteContext(Configuration);
+            services.ConfigureRepositoryManager();
             services.AddControllersWithViews();
         }
 

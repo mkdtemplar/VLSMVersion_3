@@ -1,0 +1,14 @@
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\Contracts.deps.json
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\Contracts.dll
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\ref\Contracts.dll
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\Contracts.pdb
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\DatabaseContext.dll
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\bin\Debug\net5.0\DatabaseContext.pdb
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.csproj.AssemblyReference.cache
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.AssemblyInfoInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.AssemblyInfo.cs
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.csproj.CoreCompileInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.dll
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\ref\Contracts.dll
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.pdb

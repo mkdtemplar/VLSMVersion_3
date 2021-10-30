@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Contracts;
 using DatabaseContext;
 using Microsoft.AspNetCore.Html;
+using Microsoft.Data.Sqlite;
 
 namespace VLSMVersion_3.Models
 {
@@ -25,17 +27,17 @@ namespace VLSMVersion_3.Models
         public List<Lans> LansValues { get; set; }
         public List<string> FinalResult { get; set; }
 
-        private VlsmDb _db;
+        private IRepositoryManager _repository;
         public VLSM_Model()
         {
+            
             LansValues = new List<Lans>();
         }
 
-        public VLSM_Model(VlsmDb db)
+        public VLSM_Model(IRepositoryManager repository)
         {
-            _db = db;
+            _repository = repository;
         }
-
         public int[] subnets = { 1, 2, 4, 8, 16, 32, 64, 128, 256 };
         public int[] hosts = { 256, 128, 64, 32, 16, 8, 4, 2, 1 };
         public int[] submask = { 24, 25, 26, 27, 28, 29, 30, 31, 32 };
@@ -165,7 +167,11 @@ namespace VLSMVersion_3.Models
         */
         public HtmlString  GetSubAndMask()
         {
-            
+            var connectionStringBuilder = new SqliteConnectionStringBuilder();
+            connectionStringBuilder.DataSource = "../DatabaseContext/VlsmDb.db";
+            var connection = new SqliteConnection(connectionStringBuilder.ConnectionString);
+            connection.Open();
+
             LanHostList = new List<int>();
             foreach (var t in LansValues)
             {
@@ -222,10 +228,10 @@ namespace VLSMVersion_3.Models
             
             for (int i = 0; i < HostsPerLan.Count; i++)
             {
-                Vlsmresult vlsmresult = new Vlsmresult();
+                
                 string networkID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet;
                 FinalResult.Add(networkID);
-                vlsmresult.NetworkId = networkID;
+               
 
                 var subnetIndex = Array.IndexOf(hosts, HostsPerLan[i]);
                 var subnetNo = subnets[subnetIndex];
@@ -233,33 +239,29 @@ namespace VLSMVersion_3.Models
                 var subnetDecimal = cidrLastOctet[subnetIndex];
 
                 string subMask = "/" + subMaskNo;
-                vlsmresult.Cidr = subMask;
+               
                 FinalResult.Add(subMask);
 
                 string subMaskNumber = "255.255.255." + subnetDecimal;
                 FinalResult.Add(subMaskNumber);
-                vlsmresult.SubnetMask = subMaskNumber;
+                
 
                 string hostsPerLan = Convert.ToString(HostsPerLan[i], 10);
                 FinalResult.Add(hostsPerLan);
-                vlsmresult.NumberOfHostsPerSubnet = hostsPerLan;
+                
                 string lanNumber =  "LAN: " + (i + 1);
                 FinalResult.Add(lanNumber);
                 
                 string subnetNumber = Convert.ToString(subnetNo, 10);
                 FinalResult.Add(subnetNumber);
-                vlsmresult.NumberOfSubnets = subnetNumber;
+               
 
                 string startIpAddress = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + 1) + 
                      "-" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 2);
                 FinalResult.Add(startIpAddress);
-                vlsmresult.RangeOfUsableIpaddresses = startIpAddress;
-
                 
                 string broadcastID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 1);
                 FinalResult.Add(broadcastID);
-
-                vlsmresult.BroadcastId = broadcastID;
 
                 innerTable += "<tr>" + "<td>" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet + "</td>" + "<td>" + "/" +
                               subMaskNo + "</td>" + "<td>255.255.255." + subnetDecimal + "</td>" + "<td>" + HostsPerLan[i] + "</td>" + "<td>" + "LAN: " + (i + 1) + "</td>" + "<td>" + subnetNo + "</td>";
@@ -268,12 +270,21 @@ namespace VLSMVersion_3.Models
                               "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 2) + "</td>" + "<td>" + firstOctet +
                               "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 1) + "</td>" + "</tr>";
 
-               // _db.Vlsmresults.Add(vlsmresult);
-               // _db.SaveChanges();
-
-               fourthOctet += HostsPerLan[i];
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var insertCmd = connection.CreateCommand();
+                    insertCmd.CommandText = "INSERT OR IGNORE INTO Vlsmresults (NetworkId, CIDR, SubnetMask, NumberOfHostsPerSubnet,  NumberOfSubnets, RangeOfUsableIpaddresses, broadcastID)" +
+                                            " VALUES(" + " '" + networkID + "'," + " '" + subMask + "'," +
+                                            " '" + subMaskNumber + "'," +
+                                            " '" + hostsPerLan + "'," + " '" + subnetNumber + "'," + " '" + startIpAddress +
+                                            "'," + " '" + broadcastID + "')";
+                    insertCmd.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                fourthOctet += HostsPerLan[i];
             }
             innerTable += "</tbody></table>";
+            connection.Close();
             return new HtmlString(innerTable);
         }
     }

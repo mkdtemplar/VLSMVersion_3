@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VLSMVersion_3", "VLSMVersion_3\VLSMVersion_3.csproj", "{F4B26DB6-974B-4793-B1C2-0DE3DAB31484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseContext", "DatabaseContext\DatabaseContext.csproj", "{C08BE70B-9157-45DF-AB7D-D5537AF99650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseContext", "DatabaseContext\DatabaseContext.csproj", "{C08BE70B-9157-45DF-AB7D-D5537AF99650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{A1DADBAA-FB8B-4EE4-9FA1-A094237AACB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{CC529B42-8690-4042-AE8B-1639ED82549A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{C08BE70B-9157-45DF-AB7D-D5537AF99650}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C08BE70B-9157-45DF-AB7D-D5537AF99650}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C08BE70B-9157-45DF-AB7D-D5537AF99650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1DADBAA-FB8B-4EE4-9FA1-A094237AACB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1DADBAA-FB8B-4EE4-9FA1-A094237AACB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1DADBAA-FB8B-4EE4-9FA1-A094237AACB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1DADBAA-FB8B-4EE4-9FA1-A094237AACB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC529B42-8690-4042-AE8B-1639ED82549A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC529B42-8690-4042-AE8B-1639ED82549A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC529B42-8690-4042-AE8B-1639ED82549A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC529B42-8690-4042-AE8B-1639ED82549A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

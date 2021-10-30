@@ -1,0 +1,112 @@
+﻿@model System.Collections.Generic.IEnumerable<DatabaseContext.Vlsmresult>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Results Stored in Database</title>
+    <style>
+    
+        table {
+            background-color: lightblue;
+            border-collapse: collapse;
+            border: 1px solid gray;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid gray;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightcoral;
+        }
+
+        tr:first-child {
+            background-color: lightgreen;
+        }
+        .center {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NetworkId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubnetMask)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfHostsPerSubnet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSubnets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RangeOfUsableIpaddresses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BroadcastId)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NetworkId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubnetMask)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfHostsPerSubnet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfSubnets)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RangeOfUsableIpaddresses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BroadcastId)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>  
+</div>
+<div>
+    <a class="btn btn-info" style="margin-right: 5px" asp-area="" asp-controller="Home" asp-action="Index">Return to Home Page</a>
+</div>
+</body>
+</html>

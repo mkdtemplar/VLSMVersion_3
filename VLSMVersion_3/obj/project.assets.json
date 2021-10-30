@@ -2172,6 +2172,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "DatabaseContext": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Contracts.dll": {}
+        }
+      },
       "DatabaseContext/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -2184,6 +2197,21 @@
         },
         "runtime": {
           "bin/placeholder/DatabaseContext.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Contracts": "1.0.0",
+          "DatabaseContext": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.11"
+        },
+        "compile": {
+          "bin/placeholder/Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repository.dll": {}
         }
       }
     }
@@ -7474,21 +7502,33 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Contracts/Contracts.csproj",
+      "msbuildProject": "../Contracts/Contracts.csproj"
+    },
     "DatabaseContext/1.0.0": {
       "type": "project",
       "path": "../DatabaseContext/DatabaseContext.csproj",
       "msbuildProject": "../DatabaseContext/DatabaseContext.csproj"
+    },
+    "Repository/1.0.0": {
+      "type": "project",
+      "path": "../Repository/Repository.csproj",
+      "msbuildProject": "../Repository/Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Contracts >= 1.0.0",
       "DatabaseContext >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.11",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
+      "Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7523,8 +7563,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "D:\\C#\\PracticalApps\\VLSMVersion_3\\Contracts\\Contracts.csproj": {
+              "projectPath": "D:\\C#\\PracticalApps\\VLSMVersion_3\\Contracts\\Contracts.csproj"
+            },
             "D:\\C#\\PracticalApps\\VLSMVersion_3\\DatabaseContext\\DatabaseContext.csproj": {
               "projectPath": "D:\\C#\\PracticalApps\\VLSMVersion_3\\DatabaseContext\\DatabaseContext.csproj"
+            },
+            "D:\\C#\\PracticalApps\\VLSMVersion_3\\Repository\\Repository.csproj": {
+              "projectPath": "D:\\C#\\PracticalApps\\VLSMVersion_3\\Repository\\Repository.csproj"
             }
           }
         }

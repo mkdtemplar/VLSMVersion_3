@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts;
 using DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 using VLSMVersion_3.Models;
 
 namespace VLSMVersion_3.Controllers
@@ -18,11 +20,13 @@ namespace VLSMVersion_3.Controllers
             return View();
         }
 
-        private readonly VlsmDb _db;
+        private VlsmDb _context;
+        private IRepositoryManager _repositoryManager;
 
-        public VLSM_Controller(VlsmDb db)
+        public VLSM_Controller(IRepositoryManager repositoryManager, VlsmDb context)
         {
-            _db = db;
+            _repositoryManager = repositoryManager;
+            _context = context;
         }
 
         // POST: VLSM_Controller/Create
@@ -44,9 +48,15 @@ namespace VLSMVersion_3.Controllers
                 ViewData["FinalResult"] = model.GetSubAndMask();
             }
 
+
             return View("VlsmResultNew");
         }
 
+        [HttpGet]
+        public IActionResult DisplayDatabase()
+        {
+            return View(_repositoryManager.Vlsm.GetAllResults(trackChanges: false));
+        }
         public ActionResult VlsmResult()
         {
             
@@ -75,18 +85,37 @@ namespace VLSMVersion_3.Controllers
         }
 */
         // POST: VLSM_Controller/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(long? id)
         {
-            try
+            if (id == null)
             {
-                return RedirectToAction(nameof(VlsmResult));
+                return NotFound();
             }
-            catch
+
+            var vlsmresult = await _context.Vlsmresults
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (vlsmresult == null)
             {
-                return View("Index");
+                return NotFound();
             }
+
+            return View(vlsmresult);
+        }
+
+        // POST: Vlsmresults/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(long id)
+        {
+            var vlsmresult = await _context.Vlsmresults.FindAsync(id);
+            _context.Vlsmresults.Remove(vlsmresult);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(DisplayDatabase));
+        }
+
+        private bool VlsmresultExists(long id)
+        {
+            return _context.Vlsmresults.Any(e => e.Id == id);
         }
         
     }
