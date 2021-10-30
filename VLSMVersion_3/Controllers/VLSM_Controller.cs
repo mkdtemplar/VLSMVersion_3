@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DatabaseContext;
 using VLSMVersion_3.Models;
 
 namespace VLSMVersion_3.Controllers
@@ -17,16 +18,22 @@ namespace VLSMVersion_3.Controllers
             return View();
         }
 
+        private readonly VlsmDb _db;
+
+        public VLSM_Controller(VlsmDb db)
+        {
+            _db = db;
+        }
+
         // POST: VLSM_Controller/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(VLSM_Model model)
         {
-            var model1 = new VLSM_Model(model.LansValues);
-            
+
             if (ModelState.IsValid)
             {
-                
+
                 ViewData["IP_Address"] = model.IP_Address;
 
                 ViewData["LansValues"] = model.LansValues;
