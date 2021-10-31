@@ -32,6 +32,9 @@ namespace VLSMVersion_3.Models
         {
             
             LansValues = new List<Lans>();
+            LanHostList = new List<int>();
+            HostsPerLan = new List<int>();
+            FinalResult = new List<string>();
         }
 
         public VLSM_Model(IRepositoryManager repository)
@@ -167,12 +170,14 @@ namespace VLSMVersion_3.Models
         */
         public HtmlString  GetSubAndMask()
         {
-            var connectionStringBuilder = new SqliteConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "../DatabaseContext/VlsmDb.db";
+            var connectionStringBuilder = new SqliteConnectionStringBuilder
+            {
+                DataSource = "../DatabaseContext/VlsmDb.db"
+            };
             var connection = new SqliteConnection(connectionStringBuilder.ConnectionString);
             connection.Open();
 
-            LanHostList = new List<int>();
+            
             foreach (var t in LansValues)
             {
                 LanHostList.Add(t.InitialLanValues);
@@ -186,7 +191,7 @@ namespace VLSMVersion_3.Models
                 }
             }
 
-            HostsPerLan = new List<int>();
+            
             foreach (var t in LanHostList)
             {
                 for (int j = 0; j < hosts.Length; j++)
@@ -214,7 +219,7 @@ namespace VLSMVersion_3.Models
             var thirdOctet = Octets()[2];
             var fourthOctet = NetworkID();
             var innerTable = string.Empty; 
-            FinalResult = new List<string>();
+            
 
             innerTable += "<table class='table-primary table-striped caption-top'>";
             innerTable += "<thead>";
@@ -230,38 +235,27 @@ namespace VLSMVersion_3.Models
             {
                 
                 string networkID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet;
-                FinalResult.Add(networkID);
-               
-
+                
                 var subnetIndex = Array.IndexOf(hosts, HostsPerLan[i]);
                 var subnetNo = subnets[subnetIndex];
                 var subMaskNo = submask[subnetIndex];
                 var subnetDecimal = cidrLastOctet[subnetIndex];
 
                 string subMask = "/" + subMaskNo;
-               
-                FinalResult.Add(subMask);
-
-                string subMaskNumber = "255.255.255." + subnetDecimal;
-                FinalResult.Add(subMaskNumber);
                 
-
+                string subMaskNumber = "255.255.255." + subnetDecimal;
+                
                 string hostsPerLan = Convert.ToString(HostsPerLan[i], 10);
-                FinalResult.Add(hostsPerLan);
                 
                 string lanNumber =  "LAN: " + (i + 1);
-                FinalResult.Add(lanNumber);
                 
                 string subnetNumber = Convert.ToString(subnetNo, 10);
-                FinalResult.Add(subnetNumber);
-               
-
+                
                 string startIpAddress = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + 1) + 
                      "-" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 2);
-                FinalResult.Add(startIpAddress);
-                
+
                 string broadcastID = firstOctet + "." + secondOctet + "." + thirdOctet + "." + (fourthOctet + HostsPerLan[i] - 1);
-                FinalResult.Add(broadcastID);
+                
 
                 innerTable += "<tr>" + "<td>" + firstOctet + "." + secondOctet + "." + thirdOctet + "." + fourthOctet + "</td>" + "<td>" + "/" +
                               subMaskNo + "</td>" + "<td>255.255.255." + subnetDecimal + "</td>" + "<td>" + HostsPerLan[i] + "</td>" + "<td>" + "LAN: " + (i + 1) + "</td>" + "<td>" + subnetNo + "</td>";
