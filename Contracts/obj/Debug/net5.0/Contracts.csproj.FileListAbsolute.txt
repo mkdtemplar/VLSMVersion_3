@@ -12,3 +12,4 @@ D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.csproj.Co
 D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.dll
 D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\ref\Contracts.dll
 D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.pdb
+D:\C#\PracticalApps\VLSMVersion_3\Contracts\obj\Debug\net5.0\Contracts.csproj.CopyComplete
