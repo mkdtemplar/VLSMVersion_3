@@ -25,7 +25,6 @@ D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\VLSMVersion_3.M
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\VLSMVersion_3.RazorAssemblyInfo.cache
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\VLSMVersion_3.RazorAssemblyInfo.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\staticwebassets\VLSMVersion_3.StaticWebAssets.Manifest.cache
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\staticwebassets\VLSMVersion_3.StaticWebAssets.xml
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\scopedcss\bundle\VLSMVersion_3.styles.css
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\VLSMVersion_3.TagHelpers.input.cache
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\VLSMVersion_3.TagHelpers.output.cache
@@ -183,3 +182,4 @@ D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vls
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Index.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\DisplayDatabase.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\Delete.cshtml.g.cs
+D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\VLSMVersion_3.StaticWebAssets.xml
