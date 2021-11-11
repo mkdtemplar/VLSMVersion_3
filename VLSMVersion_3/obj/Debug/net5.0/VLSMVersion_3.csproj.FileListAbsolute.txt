@@ -120,9 +120,7 @@ D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\zh-Hant\Microso
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\Create.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\VlsmResult.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Home\Author.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\Index.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\VlsmResultNew.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
@@ -175,11 +173,5 @@ D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Contracts.dll
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Repository.dll
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Contracts.pdb
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\Repository.pdb
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Create.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Delete.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Details.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Edit.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\Vlsmresults\Index.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\DisplayDatabase.cshtml.g.cs
 D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\obj\Debug\net5.0\Razor\Views\VLSM_\Delete.cshtml.g.cs
-D:\C#\PracticalApps\VLSMVersion_3\VLSMVersion_3\bin\Debug\net5.0\VLSMVersion_3.StaticWebAssets.xml

@@ -77,14 +77,8 @@ namespace VLSMVersion_3.Controllers
                 return View("Create");
             }
         }
-/*
-        // GET: VLSM_Controller/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-*/
-        // POST: VLSM_Controller/Delete/5
+
+        
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
