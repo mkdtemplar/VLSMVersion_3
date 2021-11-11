@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a1dadbaa-fb8b-4ee4-9fa1-a094237aacb0": {
+      "ProjectGuid": "a1dadbaa-fb8b-4ee4-9fa1-a094237aacb0",
+      "DisplayName": "Contracts",
+      "ColorIndex": 0
+    },
+    "cc529b42-8690-4042-ae8b-1639ed82549a": {
+      "ProjectGuid": "cc529b42-8690-4042-ae8b-1639ed82549a",
+      "DisplayName": "Repository",
+      "ColorIndex": 1
+    },
+    "f4b26db6-974b-4793-b1c2-0de3dab31484": {
+      "ProjectGuid": "f4b26db6-974b-4793-b1c2-0de3dab31484",
+      "DisplayName": "VLSMVersion_3",
+      "ColorIndex": 2
+    },
+    "c08be70b-9157-45df-ab7d-d5537af99650": {
+      "ProjectGuid": "c08be70b-9157-45df-ab7d-d5537af99650",
+      "DisplayName": "DatabaseContext",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
