@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASP;
 using Contracts;
 using DatabaseContext;
 using Microsoft.EntityFrameworkCore;
@@ -57,11 +58,7 @@ namespace VLSMVersion_3.Controllers
         {
             return View(_repositoryManager.Vlsm.GetAllResults(trackChanges: false));
         }
-        public ActionResult VlsmResult()
-        {
-            
-            return View();
-        }
+        
 
         // POST: VLSM_Controller/Edit/5
         [HttpPost]
@@ -70,7 +67,7 @@ namespace VLSMVersion_3.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(VlsmResult));
+                return RedirectToAction(nameof(DisplayDatabase));
             }
             catch
             {

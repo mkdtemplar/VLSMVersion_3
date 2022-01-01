@@ -22,6 +22,7 @@ namespace VLSMVersion_3.Models
         [Display(Name = "IP ADDRESS")]
         public string IP_Address { get; set; }
         [Display(Name = "CIDR VALUE")]
+        [Range(24, 30, ErrorMessage = "CIDR value must be between 24 and 30")]
         [Required(ErrorMessage = "CIDR value is required")]
         public int cidrValue { get; set; }
         public List<Lans> LansValues { get; set; }
