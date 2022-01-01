@@ -1,0 +1,14 @@
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\bin\Debug\net6.0\DatabaseContext.deps.json
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\bin\Debug\net6.0\DatabaseContext.runtimeconfig.json
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\bin\Debug\net6.0\DatabaseContext.dll
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\bin\Debug\net6.0\ref\DatabaseContext.dll
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\bin\Debug\net6.0\DatabaseContext.pdb
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.csproj.AssemblyReference.cache
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.AssemblyInfoInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.AssemblyInfo.cs
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.csproj.CoreCompileInputs.cache
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.dll
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\ref\DatabaseContext.dll
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.pdb
+D:\C#\PracticalApps\VLSMVersion_3\DatabaseContext\obj\Debug\net6.0\DatabaseContext.genruntimeconfig.cache
