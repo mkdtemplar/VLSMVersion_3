@@ -1,0 +1,17 @@
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/Repository.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/Repository.pdb
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.csproj.AssemblyReference.cache
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.AssemblyInfoInputs.cache
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.AssemblyInfo.cs
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.csproj.CoreCompileInputs.cache
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/ref/Repository.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.pdb
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/Repository.deps.json
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/ref/Repository.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/Contracts.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/DatabaseContext.dll
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/Contracts.pdb
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/bin/Debug/net6.0/DatabaseContext.pdb
+/mnt/99ebcd88-419d-4d30-a13a-b5d3286276ce/C#/PracticalApps/VLSMVersion_3/Repository/obj/Debug/net6.0/Repository.csproj.CopyComplete

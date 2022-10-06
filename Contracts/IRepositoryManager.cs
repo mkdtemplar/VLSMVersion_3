@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Contracts;
 
-namespace Contracts
+public interface IRepositoryManager
 {
-    public interface IRepositoryManager
-    {
-        IVlsmResultRepository Vlsm { get; }
-        void Save();
-    }
+    IVlsmResultRepository Vlsm { get; }
+    void Save();
 }
